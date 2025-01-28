@@ -1,4 +1,4 @@
-import { IntroContainer, IntroTitle, ItemsContainer } from "./styles";
+import { CoffeeList, IntroContainer, IntroTitle, ItemsContainer } from "./styles";
 
 import { Coffee, Package, ShoppingCart, Timer } from "phosphor-react";
 
@@ -37,6 +37,18 @@ export function Home(){
                </div>
             </ItemsContainer>
          </IntroContainer>
+
+         <CoffeeList>
+            <h1>Nossos cafés</h1>
+
+            <div>
+               <span>cafe 01</span>
+               <span>cafe 02</span>
+               <span>cafe 03</span>
+               <span>cafe 04</span>
+               <span>cafe 05</span>
+            </div>
+         </CoffeeList>
       </div>
    )
 }

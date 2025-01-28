@@ -83,3 +83,22 @@ export const ItemsContainer = styled.div`
       background: ${props => props.theme.purple}
    }
 `
+
+export const CoffeeList = styled.div`
+   padding: 2rem 10rem;
+
+   h1 {
+      font-family: 'Baloo 2', sans-serif;
+      color: ${props => props.theme["base-subtitle"]};
+   }
+
+   div {
+      display: grid;
+      padding: 3.375rem 0;
+
+      grid-template-columns: repeat(4, 1fr);
+
+      grid-row-gap: 2rem;
+      grid-column-gap: 2.5rem;
+   }
+`
