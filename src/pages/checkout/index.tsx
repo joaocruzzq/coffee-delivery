@@ -3,8 +3,9 @@ import { CheckoutContainer, FormContainer, OrderContainer } from "./styles";
 import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } from "phosphor-react";
 
 import { Input } from "./components/input";
-import { PaymentMethod } from "./components/paymentMethod";
+import { PaymentMethod } from "./components/payment-method";
 import { Button } from "./components/button";
+import { CoffeeCard } from "./components/coffee-card";
 
 export function Checkout() {
    return (
@@ -57,9 +58,8 @@ export function Checkout() {
             </FormContainer>
             
             <OrderContainer>
-               <span>Cafe 01</span>
-               <span>Cafe 02</span>
-               <span>Cafe 03</span>
+               <CoffeeCard />
+               <div className="divider" />
 
                <div className="orderPricing">
                   <div>

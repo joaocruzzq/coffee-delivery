@@ -115,6 +115,13 @@ export const OrderContainer = styled.div`
 
    background: ${props => props.theme["base-card"]};
 
+   .divider {
+      height: 1px;
+      width: 100%;
+
+      background: ${props => props.theme["base-button"]};
+   }
+
    .orderPricing {
       display: grid;
       gap: 0.75rem;
