@@ -108,7 +108,7 @@ export const CoffeeList = styled.div`
 
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 
-      grid-row-gap: 2rem;
-      grid-column-gap: 2.5rem;
+      grid-row-gap: 2.5rem;
+      grid-column-gap: 2rem;
    }
 `

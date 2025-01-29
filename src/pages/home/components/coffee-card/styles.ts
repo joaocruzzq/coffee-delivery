@@ -37,6 +37,8 @@ export const CoffeeCardContainer = styled.div`
 
       border-radius: 6.25rem;
 
+      text-transform: uppercase;
+
       color: ${props => props.theme["yellow-dark"]};
       background: ${props => props.theme["yellow-light"]};
    }
