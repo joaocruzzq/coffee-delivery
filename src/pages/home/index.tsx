@@ -3,6 +3,7 @@ import { CoffeeList, IntroContainer, IntroTitle, ItemsContainer } from "./styles
 import { Coffee, Package, ShoppingCart, Timer } from "phosphor-react";
 
 import coffeePic from "../../assets/coffee-pic.png"
+import { CoffeeCard } from "./components/coffee-card";
 
 export function Home(){
    return (
@@ -42,11 +43,11 @@ export function Home(){
             <h1>Nossos cafés</h1>
 
             <div>
-               <span>cafe 01</span>
-               <span>cafe 02</span>
-               <span>cafe 03</span>
-               <span>cafe 04</span>
-               <span>cafe 05</span>
+               <CoffeeCard />
+               <CoffeeCard />
+               <CoffeeCard />
+               <CoffeeCard />
+               <CoffeeCard />
             </div>
          </CoffeeList>
       </div>

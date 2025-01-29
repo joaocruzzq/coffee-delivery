@@ -4,6 +4,8 @@ export const IntroContainer = styled.div`
    display: grid;
    grid-template-areas: 'title img' 'items img';
 
+   max-width: 100%;
+
    column-gap: 3.5rem;
    padding: 5.875rem 10rem 6.75rem;
 
@@ -25,7 +27,7 @@ export const IntroTitle = styled.div`
    gap: 1rem;
    grid-area: title;
 
-   width: 36.75rem;
+   max-width: 100%;
 
    h1 {
       font-size: 3rem;
@@ -87,16 +89,24 @@ export const ItemsContainer = styled.div`
 export const CoffeeList = styled.div`
    padding: 2rem 10rem;
 
+   width: 100%;
+   max-width: 100%;
+
+   box-sizing: border-box;
+
    h1 {
       font-family: 'Baloo 2', sans-serif;
       color: ${props => props.theme["base-subtitle"]};
    }
 
-   div {
+   > div {
       display: grid;
       padding: 3.375rem 0;
 
-      grid-template-columns: repeat(4, 1fr);
+      width: 100%;
+      max-width: 100%;
+
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 
       grid-row-gap: 2rem;
       grid-column-gap: 2.5rem;
