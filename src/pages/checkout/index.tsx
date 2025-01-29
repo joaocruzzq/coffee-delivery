@@ -1,17 +1,19 @@
-import { CheckoutContainer, FormContainer } from "./styles";
+import { CheckoutContainer, FormContainer, OrderContainer } from "./styles";
 
 import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } from "phosphor-react";
 
 import { Input } from "./components/input";
 import { PaymentMethod } from "./components/paymentMethod";
+import { Button } from "./components/button";
 
 export function Checkout() {
    return (
       <CheckoutContainer>
-         <h1>Complete seu pedido</h1>
-         <h1>Cafés selecionados</h1>
-
          <form action="">
+            <h1>Complete seu pedido</h1>
+
+            <h1>Cafés selecionados</h1>
+
             <FormContainer className="deliveryInfo">
                <header>
                   <MapPinLine size={22} />
@@ -53,6 +55,31 @@ export function Checkout() {
                   <PaymentMethod icon={<Money />} method="dinheiro" />
                </div>
             </FormContainer>
+            
+            <OrderContainer>
+               <span>Cafe 01</span>
+               <span>Cafe 02</span>
+               <span>Cafe 03</span>
+
+               <div className="orderPricing">
+                  <div>
+                     <p>Total de itens</p>
+                     <span>R$ 29,70</span>
+                  </div>
+
+                  <div>
+                     <p>Entrega</p>
+                     <span>R$ 3,50</span>
+                  </div>
+
+                  <div>
+                     <span>Total</span>
+                     <span>R$ 33,20</span>
+                  </div>
+               </div>
+
+               <Button />
+            </OrderContainer>
          </form>
       </CheckoutContainer>
    )
