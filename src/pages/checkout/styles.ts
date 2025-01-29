@@ -26,7 +26,7 @@ export const CheckoutContainer = styled.div`
       }
 
       div:nth-child(2) svg {
-         color: blue;
+         color: ${props => props.theme.purple};
       }
    }
 `
@@ -83,5 +83,10 @@ export const FormContainer = styled.div`
       div:last-child > label:last-child {
          width: 3.75rem;
       }
+   }
+
+   .paymentMethodSection {
+      display: flex;
+      gap: 0.75rem;
    }
 `
