@@ -5,6 +5,13 @@ export const HeaderContainer = styled.header`
 
    display: flex;
    justify-content: space-between;
+
+   &:first-child > a {
+      height: 2.5rem;
+      
+      outline: none;
+      box-shadow: none;
+   }
 `
 
 export const ActionButtons = styled.div`
@@ -30,7 +37,9 @@ export const ActionButtons = styled.div`
       }
    }
 
-   button {
+   a {
+      display: flex;
+
       border: none;
       font-size: 0;
 
@@ -39,6 +48,9 @@ export const ActionButtons = styled.div`
 
       padding: 0.5rem;
       border-radius: 6px;
+
+      align-items: center;
+      justify-content: center;
 
       color: ${props => props.theme["yellow-dark"]};
       background-color: ${props => props.theme["yellow-light"]};

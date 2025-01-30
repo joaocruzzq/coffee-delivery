@@ -14,6 +14,8 @@ export const GlobalStyles = createGlobalStyle`
    }
 
    body {
+      user-select: none;
+      
       -webkit-font-smoothing: antialiased;
 
       color: ${props => props.theme["base-text"]};
