@@ -1,6 +1,7 @@
 import { ActionButtons, HeaderContainer } from "./styles";
 
 import mainLogo from "../../assets/main-logo.png"
+
 import { MapPin, ShoppingCart } from "phosphor-react";
 
 export function Header() {

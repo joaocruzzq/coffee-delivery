@@ -3,9 +3,9 @@ import { CheckoutContainer, FormContainer, OrderContainer } from "./styles";
 import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } from "phosphor-react";
 
 import { Input } from "./components/input";
-import { PaymentMethod } from "./components/payment-method";
 import { Button } from "./components/button";
 import { CoffeeCard } from "./components/coffee-card";
+import { PaymentMethod } from "./components/payment-method";
 
 export function Checkout() {
    return (

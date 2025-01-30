@@ -1,5 +1,8 @@
 import { CoffeeCardContainer } from "./styles";
-import { Minus, Plus, ShoppingCart } from "phosphor-react";
+
+import { ShoppingCart } from "phosphor-react";
+
+import { Stepper } from "../../../../components/stepper";
 
 interface CoffeeProps {
    id: number
@@ -30,11 +33,7 @@ export function CoffeeCard(props: CoffeeProps) {
             <h1>{props.price.toFixed(2)}</h1>
 
             <div className="actions">
-               <div>
-                  <Minus size={14} weight="bold" />
-                  0
-                  <Plus size={14} weight="bold" />
-               </div>
+               <Stepper />
 
                <button>
                   <ShoppingCart size={22} weight="fill" />

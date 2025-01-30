@@ -86,28 +86,6 @@ export const CoffeeCardContainer = styled.div`
       gap: 8px;
    }
 
-   .actions > div {
-      display: flex;
-      width: 4.5rem;
-
-      padding: 0.5rem;
-
-      align-items: center;
-      justify-content: space-between;
-
-      border-radius: 6px;
-      background: ${props => props.theme["base-button"]};
-
-      span {
-
-      }
-
-      svg {
-         cursor: pointer;
-         color: ${props => props.theme.purple};
-      }
-   }
-
    .actions > button {
       font-size: 0;
       padding: 8px;

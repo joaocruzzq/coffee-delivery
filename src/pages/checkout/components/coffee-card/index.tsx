@@ -2,6 +2,10 @@ import { CoffeeCardContainer } from "./styles";
 
 import coffeeIMG from "../../../../assets/Type=Americano.png"
 
+import { Stepper } from "../../../../components/stepper";
+
+import { Trash } from "phosphor-react";
+
 export function CoffeeCard() {
    return (
       <CoffeeCardContainer>
@@ -12,8 +16,12 @@ export function CoffeeCard() {
                <span>Expresso Tradicional</span>
 
                <div className="actions">
-                  <span>botao01</span>
-                  <span>botao02</span>
+                  <Stepper />
+
+                  <button>
+                     <Trash size={16} />
+                     Remover
+                  </button>
                </div>
             </div>
          </div>

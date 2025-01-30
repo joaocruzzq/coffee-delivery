@@ -1,9 +1,10 @@
 import { CoffeeList, IntroContainer, IntroTitle, ItemsContainer } from "./styles";
 
-import { Coffee, Package, ShoppingCart, Timer } from "phosphor-react";
-
 import coffeePic from "../../assets/coffee-pic.png"
+
 import { CoffeeCard } from "./components/coffee-card";
+
+import { Coffee, Package, ShoppingCart, Timer } from "phosphor-react";
 
 const coffeeTypesList = [
    {
