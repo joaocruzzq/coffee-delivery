@@ -33,7 +33,8 @@ export const ActionButtons = styled.div`
    button {
       border: none;
       font-size: 0;
-      
+
+      width: 2.5rem;
       cursor: pointer;
 
       padding: 0.5rem;

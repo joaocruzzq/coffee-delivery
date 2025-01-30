@@ -17,7 +17,7 @@ export function Checkout() {
 
             <FormContainer className="deliveryInfo">
                <header>
-                  <MapPinLine size={22} />
+                  <MapPinLine size={22} className="pinIcon" />
                   <div className="deliveryHeaderInfo">
                      <span>Endereço de Entrega</span>
                      <p>Informe o endereço onde deseja receber seu pedido</p>
@@ -43,7 +43,7 @@ export function Checkout() {
 
             <FormContainer>
                <header>
-                  <CurrencyDollar size={22} />
+                  <CurrencyDollar size={22} className="dollarIcon" />
                   <div className="deliveryHeaderInfo">
                      <span>Pagamento</span>
                      <p>O pagamento é feito na entrega. Escolha a forma que deseja pagar</p>
@@ -61,20 +61,23 @@ export function Checkout() {
                <CoffeeCard />
                <div className="divider" />
 
+               <CoffeeCard />
+               <div className="divider" />
+
                <div className="orderPricing">
                   <div>
                      <p>Total de itens</p>
-                     <span>R$ 29,70</span>
+                     <span>29,70</span>
                   </div>
 
                   <div>
                      <p>Entrega</p>
-                     <span>R$ 3,50</span>
+                     <span>3,50</span>
                   </div>
 
                   <div>
-                     <span>Total</span>
-                     <span>R$ 33,20</span>
+                     <strong>Total</strong>
+                     <span>33,20</span>
                   </div>
                </div>
 

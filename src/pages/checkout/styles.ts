@@ -21,11 +21,11 @@ export const CheckoutContainer = styled.div`
          color: ${props => props.theme["base-subtitle"]};
       }
 
-      div:nth-child(3) svg {
+      .pinIcon {
          color: ${props => props.theme["yellow-dark"]};
       }
 
-      div:nth-child(4) svg {
+      .dollarIcon {
          color: ${props => props.theme.purple};
       }
    }
@@ -136,7 +136,11 @@ export const OrderContainer = styled.div`
          color: ${props => props.theme["base-text"]};
       }
 
-      div:last-child > span{
+      div > span::before {
+         content: 'R$ ';
+      }
+
+      div:last-child > span, div:last-child > strong{
          font-weight: bold;
          font-size: 1.25rem;
          color: ${props => props.theme["base-subtitle"]};

@@ -27,5 +27,6 @@ export const PaymentMethodContainer = styled.button`
    svg {
       width: 1rem;
       height: 1rem;
+      color: ${props => props.theme.purple};
    }
 `

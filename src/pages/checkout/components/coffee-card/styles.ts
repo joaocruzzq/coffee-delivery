@@ -6,6 +6,10 @@ export const CoffeeCardContainer = styled.div`
 
    justify-content: space-between;
 
+   strong::before {
+      content: 'R$ ';
+   }
+
    .coffeInfo {
       display: flex;
 

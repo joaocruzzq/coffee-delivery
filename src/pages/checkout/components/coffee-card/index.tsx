@@ -26,7 +26,7 @@ export function CoffeeCard() {
             </div>
          </div>
 
-         <strong>R$ 9,90</strong>
+         <strong>9,90</strong>
       </CoffeeCardContainer>
    )
 }
