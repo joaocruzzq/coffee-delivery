@@ -15,8 +15,11 @@ export const coffeeTypesList = [
       ],
 
       price: 9.90,
-      name: 'Expresso Tradicional',
+      quantity: 1,
+
       image: 'src/assets/Type=Expresso.png',
+      
+      name: 'Expresso Tradicional',
       description: 'O tradicional café feito com água quente e grãos moídos',
    },
 
@@ -36,8 +39,11 @@ export const coffeeTypesList = [
       ],
 
       price: 9.90,
-      name: 'Expresso Americano',
+      quantity: 1,
+
       image: 'src/assets/Type=Americano.png',
+      
+      name: 'Expresso Americano',
       description: 'Expresso diluído, menos intenso que o tradicional',
    },
 
@@ -57,8 +63,11 @@ export const coffeeTypesList = [
       ],
 
       price: 9.90,
-      name: 'Expresso Cremoso',
+      quantity: 1,
+
       image: 'src/assets/Type=Expresso Cremoso.png',
+      
+      name: 'Expresso Cremoso',
       description: 'Café expresso tradicional com espuma cremosa',
    },
 
@@ -78,8 +87,11 @@ export const coffeeTypesList = [
       ],
 
       price: 9.90,
-      name: 'Expresso Gelado',
+      quantity: 1,
+
       image: 'src/assets/Type=Café Gelado.png',
+      
+      name: 'Expresso Gelado',
       description: 'Bebida preparada com café expresso e cubos de gelo',
    },
 
@@ -104,8 +116,11 @@ export const coffeeTypesList = [
       ],
 
       price: 9.90,
-      name: 'Café com Leite',
+      quantity: 1,
+
       image: 'src/assets/Type=Café com Leite.png',
+      
+      name: 'Café com Leite',
       description: 'Meio a meio de expresso tradicional com leite vaporizado',
    },
 
@@ -130,8 +145,11 @@ export const coffeeTypesList = [
       ],
 
       price: 9.90,
-      name: 'Latte',
+      quantity: 1,
+
       image: 'src/assets/Type=Latte.png',
+      
+      name: 'Latte',
       description: 'Uma dose de café expresso com o dobro de leite e espuma cremosa',
    },
 
@@ -156,8 +174,11 @@ export const coffeeTypesList = [
       ],
 
       price: 9.90,
-      name: 'Capuccino',
+      quantity: 1,
+
       image: 'src/assets/Type=Capuccino.png',
+      
+      name: 'Capuccino',
       description: 'Bebida com canela feita de doses iguais de café, leite e espuma',
    },
 
@@ -182,8 +203,11 @@ export const coffeeTypesList = [
       ],
 
       price: 9.90,
-      name: 'Macchiato',
+      quantity: 1,
+
       image: 'src/assets/Type=Macchiato.png',
+      
+      name: 'Macchiato',
       description: 'Café expresso misturado com um pouco de leite quente e espuma',
    },
 
@@ -208,8 +232,11 @@ export const coffeeTypesList = [
       ],
 
       price: 9.90,
-      name: 'Mochaccino',
+      quantity: 1,
+
       image: 'src/assets/Type=Mochaccino.png',
+      
+      name: 'Mochaccino',
       description: 'Café expresso com calda de chocolate, pouco leite e espuma',
    },
 
@@ -234,8 +261,11 @@ export const coffeeTypesList = [
       ],
 
       price: 9.90,
-      name: 'Chocolate Quente',
+      quantity: 1,
+
       image: 'src/assets/Type=Chocolate Quente.png',
+      
+      name: 'Chocolate Quente',
       description: 'Bebida feita com chocolate dissolvido no leite quente e café',
    },
 
@@ -260,8 +290,11 @@ export const coffeeTypesList = [
       ],
 
       price: 9.90,
-      name: 'Cubano',
+      quantity: 1,
+
       image: 'src/assets/Type=Cubano.png',
+      
+      name: 'Cubano',
       description: 'Drink gelado de café expresso com rum, creme de leite e hortelã',
    },
 
@@ -281,8 +314,11 @@ export const coffeeTypesList = [
       ],
 
       price: 9.90,
-      name: 'Havaiano',
+      quantity: 1,
+
       image: 'src/assets/Type=Havaiano.png',
+      
+      name: 'Havaiano',
       description: 'Bebida adocicada preparada com café e leite de coco',
    },
 
@@ -302,8 +338,11 @@ export const coffeeTypesList = [
       ],
 
       price: 9.90,
-      name: 'Árabe',
+      quantity: 1,
+
       image: 'src/assets/Type=Árabe.png',
+      
+      name: 'Árabe',
       description: 'Bebida preparada com grãos de café árabe e especiarias',
    },
 
@@ -328,8 +367,11 @@ export const coffeeTypesList = [
       ],
 
       price: 9.90,
-      name: 'Irlandês',
+      quantity: 1,
+
       image: 'src/assets/Type=Irlandês.png',
+      
+      name: 'Irlandês',
       description: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',
    },
 ]

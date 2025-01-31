@@ -2,13 +2,47 @@ import { CoffeeList, IntroContainer, IntroTitle, ItemsContainer } from "./styles
 
 import coffeePic from "../../assets/coffee-pic.png"
 
-import { CoffeeCard } from "./components/coffee-card";
+import { CoffeeCard, CoffeeType } from "./components/coffee-card";
 
 import { Coffee, Package, ShoppingCart, Timer } from "phosphor-react";
 
 import { coffeeTypesList } from "../../utils/coffeeList";
 
-export function Home(){
+import { useState } from "react";
+
+interface CoffeeOnCartProps {
+   id: number
+   img: string
+   name: string
+   price: number
+   quantity: number
+}
+
+export function Home() {
+   const [coffeeOnCart, setCoffeeOnCart] = useState<CoffeeOnCartProps[]>([])
+
+   function handleAddCoffeeToCart(coffee: CoffeeType) {
+      const newCoffeeToAdd = {
+         id: coffee.id,
+         img: coffee.image,
+         name: coffee.name,
+         price: coffee.price,
+         quantity: coffee.quantity
+      }
+
+      const coffeeOnCartAlready = coffeeOnCart.find((coffeeOnCart) => coffeeOnCart.id === newCoffeeToAdd.id)
+
+      if(coffeeOnCartAlready) {
+         console.log("Café ja no pedido: Alterar quantidade")
+      }
+
+      else {
+         setCoffeeOnCart((state) => [...state, newCoffeeToAdd])
+      }
+   }
+
+   console.log(coffeeOnCart)
+
    return (
       <div>
          <IntroContainer>
@@ -51,6 +85,7 @@ export function Home(){
                      <CoffeeCard
                         key={coffee.id}
                         coffee={coffee}
+                        onAddCoffeeToCart={handleAddCoffeeToCart}
                      />
                   )
                })}

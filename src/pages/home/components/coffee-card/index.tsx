@@ -4,25 +4,45 @@ import { ShoppingCart } from "phosphor-react";
 
 import { Stepper } from "../../../../components/stepper";
 
+import { useState } from "react";
+
 interface TagProps {
    id: number
    name: string
 }
 
-interface CoffeeType {
+export interface CoffeeType {
    id: number
    name: string
    price: number
    image: string
    tags: TagProps[]
    description: string
+   quantity: number
 }
 
 interface CoffeeProps {
    coffee: CoffeeType
+   onAddCoffeeToCart: (coffeeToAddData: CoffeeType) => void
 }
 
-export function CoffeeCard({coffee}: CoffeeProps) {
+export function CoffeeCard({coffee, onAddCoffeeToCart}: CoffeeProps) {
+   const [itemQuantity, setItemQuantity] = useState(1)
+
+   function handleAddCoffeeToCart(coffeeToAddData: CoffeeType) {
+      onAddCoffeeToCart(coffeeToAddData)
+   }
+
+   function handleIncreaseItemQuantity() {
+      setItemQuantity(itemQuantity + 1)
+   }
+
+   function handleDecreaseItemQuantity() {
+      if(itemQuantity > 0) {
+         setItemQuantity(itemQuantity - 1)
+      }
+   }
+
    return (
       <CoffeeCardContainer>
          <img src={coffee.image} alt="" />
@@ -42,9 +62,13 @@ export function CoffeeCard({coffee}: CoffeeProps) {
             <h1>{coffee.price.toFixed(2)}</h1>
 
             <div className="actions">
-               <Stepper />
+               <Stepper
+                  itemQuantity={itemQuantity}
+                  onDecreaseItemQuantity={handleDecreaseItemQuantity}
+                  onIncreaseItemQuantity={handleIncreaseItemQuantity}
+               />
 
-               <button>
+               <button onClick={() => handleAddCoffeeToCart({...coffee, quantity: itemQuantity})} >
                   <ShoppingCart size={22} weight="fill" />
                </button>
             </div>
