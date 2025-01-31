@@ -9,8 +9,6 @@ import { Coffee, Package, ShoppingCart, Timer } from "phosphor-react";
 import { coffeeTypesList } from "../../utils/coffeeList";
 
 export function Home() {
-   // const totalCoffeesOnOrder = coffeesOnCart.reduce((total, coffee) => total + coffee.quantity, 0)
-
    return (
       <div>
          <IntroContainer>

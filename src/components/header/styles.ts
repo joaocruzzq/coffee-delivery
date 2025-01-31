@@ -37,6 +37,28 @@ export const ActionButtons = styled.div`
       }
    }
 
+   strong {
+      display: flex;
+
+      width: 1.25rem;
+      height: 1.25rem;
+
+      border-radius: 50%;
+      position: absolute;
+
+      top: -0.5rem;
+      left: 1.65rem;
+
+      align-items: center;
+      justify-content: center;
+      
+      font-size: 0.75rem;
+      line-height: 130%;
+
+      color: ${props => props.theme.white};
+      background: ${props => props.theme["yellow-dark"]};
+   }
+
    a {
       display: flex;
 
@@ -48,6 +70,8 @@ export const ActionButtons = styled.div`
 
       padding: 0.5rem;
       border-radius: 6px;
+
+      position: relative;
 
       align-items: center;
       justify-content: center;

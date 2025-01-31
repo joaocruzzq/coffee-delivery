@@ -24,6 +24,7 @@ export interface CoffeeType {
 }
 
 interface CoffeeCartContextType {
+   coffeesOnCart: CoffeeOnCartProps[]
    addCoffeeToCart: (coffee: CoffeeType) => void
 }
 
@@ -67,6 +68,7 @@ export function CoffeeCartContextProvider({ children }: CoffeeCartContextProvide
    return (
       <CoffeeCartContext.Provider
          value={{
+            coffeesOnCart,
             addCoffeeToCart
          }}
       >
