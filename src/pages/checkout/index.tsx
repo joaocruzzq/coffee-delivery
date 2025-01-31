@@ -7,7 +7,12 @@ import { Button } from "./components/button";
 import { CoffeeCard } from "./components/coffee-card";
 import { PaymentMethod } from "./components/payment-method";
 
+import { useContext } from "react";
+import { CoffeeCartContext } from "../../context/coffee-cart-context";
+
 export function Checkout() {
+   const { coffeesOnCart } = useContext(CoffeeCartContext)
+
    return (
       <CheckoutContainer>
          <form action="">
@@ -58,11 +63,18 @@ export function Checkout() {
             </FormContainer>
             
             <OrderContainer>
-               <CoffeeCard />
+               {coffeesOnCart.map(coffee => (
+                  <>
+                     <CoffeeCard coffee={coffee} />
+                     <div className="divider" />
+                  </>
+               ))}
+
+               {/* <CoffeeCard />
                <div className="divider" />
 
                <CoffeeCard />
-               <div className="divider" />
+               <div className="divider" /> */}
 
                <div className="orderPricing">
                   <div>

@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
 
-interface CoffeeOnCartProps {
+export interface CoffeeOnCartProps {
    id: number
    img: string
    name: string
@@ -69,7 +69,7 @@ export function CoffeeCartContextProvider({ children }: CoffeeCartContextProvide
       <CoffeeCartContext.Provider
          value={{
             coffeesOnCart,
-            addCoffeeToCart
+            addCoffeeToCart,
          }}
       >
          {children}

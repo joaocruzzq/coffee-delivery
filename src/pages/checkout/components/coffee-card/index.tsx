@@ -1,19 +1,23 @@
 import { CoffeeCardContainer } from "./styles";
 
-import coffeeIMG from "../../../../assets/Type=Americano.png"
-
 import { Stepper } from "../../../../components/stepper";
 
 import { Trash } from "phosphor-react";
 
-export function CoffeeCard() {
+import { CoffeeOnCartProps } from "../../../../context/coffee-cart-context";
+
+interface CoffeeCardOnOrder {
+   coffee: CoffeeOnCartProps
+}
+
+export function CoffeeCard({ coffee }: CoffeeCardOnOrder) {
    return (
       <CoffeeCardContainer>
          <div className="coffeInfo">
-            <img src={coffeeIMG} alt="" />
+            <img src={coffee.img} alt="" />
 
             <div className="details">
-               <span>Expresso Tradicional</span>
+               <span>{coffee.name}</span>
 
                <div className="actions">
                   <Stepper />
@@ -26,7 +30,7 @@ export function CoffeeCard() {
             </div>
          </div>
 
-         <strong>9,90</strong>
+         <strong>{coffee.price}</strong>
       </CoffeeCardContainer>
    )
 }

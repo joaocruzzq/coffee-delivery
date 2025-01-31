@@ -13,23 +13,16 @@ interface CoffeeProps {
 }
 
 export function CoffeeCard({coffee}: CoffeeProps) {
+   const { addCoffeeToCart } = useContext(CoffeeCartContext)
+
    const [itemQuantity, setItemQuantity] = useState(1)
 
-   const { addCoffeeToCart } = useContext(CoffeeCartContext)
-   
-
-   function handleAddCoffeeToCart(coffeeToAddData: CoffeeType) {
-      addCoffeeToCart(coffeeToAddData)
+   function handleAddCoffeeToCart() {
+      addCoffeeToCart({...coffee, quantity: itemQuantity})
    }
 
-   function handleIncreaseItemQuantity() {
-      setItemQuantity(itemQuantity + 1)
-   }
-
-   function handleDecreaseItemQuantity() {
-      if(itemQuantity > 0) {
-         setItemQuantity(itemQuantity - 1)
-      }
+   function handleQuantityChange(newQuantity: number) {
+      setItemQuantity(newQuantity)
    }
 
    return (
@@ -52,12 +45,11 @@ export function CoffeeCard({coffee}: CoffeeProps) {
 
             <div className="actions">
                <Stepper
-                  itemQuantity={itemQuantity}
-                  onDecreaseItemQuantity={handleDecreaseItemQuantity}
-                  onIncreaseItemQuantity={handleIncreaseItemQuantity}
+               initialValue={itemQuantity}
+               onChange={handleQuantityChange}
                />
 
-               <button onClick={() => handleAddCoffeeToCart({...coffee, quantity: itemQuantity})} >
+               <button onClick={handleAddCoffeeToCart} >
                   <ShoppingCart size={22} weight="fill" />
                </button>
             </div>
