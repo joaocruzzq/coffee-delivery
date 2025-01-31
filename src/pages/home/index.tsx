@@ -2,50 +2,14 @@ import { CoffeeList, IntroContainer, IntroTitle, ItemsContainer } from "./styles
 
 import coffeePic from "../../assets/coffee-pic.png"
 
-import { CoffeeCard, CoffeeType } from "./components/coffee-card";
+import { CoffeeCard } from "./components/coffee-card";
 
 import { Coffee, Package, ShoppingCart, Timer } from "phosphor-react";
 
 import { coffeeTypesList } from "../../utils/coffeeList";
 
-import { useState } from "react";
-
-interface CoffeeOnCartProps {
-   id: number
-   img: string
-   name: string
-   price: number
-   quantity: number
-}
-
 export function Home() {
-   const [coffeesOnCart, setCoffeesOnCart] = useState<CoffeeOnCartProps[]>([])
-
-   function handleAddCoffeeToCart(coffee: CoffeeType) {
-      const coffeeToAdd = {
-         id: coffee.id,
-         img: coffee.image,
-         name: coffee.name,
-         price: coffee.price,
-         quantity: coffee.quantity
-      }
-
-      const coffeeOnCartAlready = coffeesOnCart.find((coffee) => coffee.id === coffeeToAdd.id)
-
-      if(coffeeOnCartAlready) {
-         const updatedCartList = coffeesOnCart.map((coffee) => coffee.id === coffeeToAdd.id ? {
-            ...coffee, quantity: coffee.quantity + coffeeToAdd.quantity
-         } : coffee )
-
-         setCoffeesOnCart(updatedCartList)
-      }
-
-      else {
-         setCoffeesOnCart((prevState) => [...prevState, coffeeToAdd])
-      }
-   }
-
-   console.log(coffeesOnCart)
+   // const totalCoffeesOnOrder = coffeesOnCart.reduce((total, coffee) => total + coffee.quantity, 0)
 
    return (
       <div>
@@ -89,7 +53,6 @@ export function Home() {
                      <CoffeeCard
                         key={coffee.id}
                         coffee={coffee}
-                        onAddCoffeeToCart={handleAddCoffeeToCart}
                      />
                   )
                })}

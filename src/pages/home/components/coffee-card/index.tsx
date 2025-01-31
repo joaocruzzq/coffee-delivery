@@ -4,33 +4,22 @@ import { ShoppingCart } from "phosphor-react";
 
 import { Stepper } from "../../../../components/stepper";
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 
-interface TagProps {
-   id: number
-   name: string
-}
-
-export interface CoffeeType {
-   id: number
-   name: string
-   price: number
-   image: string
-   tags: TagProps[]
-   description: string
-   quantity: number
-}
+import { CoffeeCartContext, CoffeeType } from "../../../../context/coffee-cart-context";
 
 interface CoffeeProps {
    coffee: CoffeeType
-   onAddCoffeeToCart: (coffeeToAddData: CoffeeType) => void
 }
 
-export function CoffeeCard({coffee, onAddCoffeeToCart}: CoffeeProps) {
+export function CoffeeCard({coffee}: CoffeeProps) {
    const [itemQuantity, setItemQuantity] = useState(1)
 
+   const { addCoffeeToCart } = useContext(CoffeeCartContext)
+   
+
    function handleAddCoffeeToCart(coffeeToAddData: CoffeeType) {
-      onAddCoffeeToCart(coffeeToAddData)
+      addCoffeeToCart(coffeeToAddData)
    }
 
    function handleIncreaseItemQuantity() {
