@@ -19,10 +19,10 @@ interface CoffeeOnCartProps {
 }
 
 export function Home() {
-   const [coffeeOnCart, setCoffeeOnCart] = useState<CoffeeOnCartProps[]>([])
+   const [coffeesOnCart, setCoffeesOnCart] = useState<CoffeeOnCartProps[]>([])
 
    function handleAddCoffeeToCart(coffee: CoffeeType) {
-      const newCoffeeToAdd = {
+      const coffeeToAdd = {
          id: coffee.id,
          img: coffee.image,
          name: coffee.name,
@@ -30,18 +30,22 @@ export function Home() {
          quantity: coffee.quantity
       }
 
-      const coffeeOnCartAlready = coffeeOnCart.find((coffeeOnCart) => coffeeOnCart.id === newCoffeeToAdd.id)
+      const coffeeOnCartAlready = coffeesOnCart.find((coffee) => coffee.id === coffeeToAdd.id)
 
       if(coffeeOnCartAlready) {
-         console.log("Café ja no pedido: Alterar quantidade")
+         const updatedCartList = coffeesOnCart.map((coffee) => coffee.id === coffeeToAdd.id ? {
+            ...coffee, quantity: coffee.quantity + coffeeToAdd.quantity
+         } : coffee )
+
+         setCoffeesOnCart(updatedCartList)
       }
 
       else {
-         setCoffeeOnCart((state) => [...state, newCoffeeToAdd])
+         setCoffeesOnCart((prevState) => [...prevState, coffeeToAdd])
       }
    }
 
-   console.log(coffeeOnCart)
+   console.log(coffeesOnCart)
 
    return (
       <div>
