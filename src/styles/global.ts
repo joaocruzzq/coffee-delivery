@@ -13,6 +13,15 @@ export const GlobalStyles = createGlobalStyle`
       box-shadow: 0 0 0 1px ${props => props.theme.purple};
    }
 
+   ::-webkit-scrollbar {
+      width: 4px;
+   }
+      
+   ::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background-color: ${props => props.theme.yellow};
+   }
+
    body {
       user-select: none;
       

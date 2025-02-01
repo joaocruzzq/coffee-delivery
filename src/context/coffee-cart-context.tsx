@@ -26,6 +26,7 @@ export interface CoffeeType {
 interface CoffeeCartContextType {
    coffeesOnCart: CoffeeOnCartProps[]
    addCoffeeToCart: (coffee: CoffeeType) => void
+   updateCoffeeQuantity: (id: number, quantity: number) => void
 }
 
 export const CoffeeCartContext = createContext({} as CoffeeCartContextType)
@@ -61,6 +62,12 @@ export function CoffeeCartContextProvider({ children }: CoffeeCartContextProvide
       }
    }
 
+   function updateCoffeeQuantity(id: number, quantity: number) {
+      setCoffeesOnCart(prevState =>
+         prevState.map(coffee => coffee.id === id ? {...coffee, quantity} : coffee)
+      )
+   }
+
    useEffect(() => {
       console.log(coffeesOnCart)
    }, [coffeesOnCart])
@@ -70,6 +77,7 @@ export function CoffeeCartContextProvider({ children }: CoffeeCartContextProvide
          value={{
             coffeesOnCart,
             addCoffeeToCart,
+            updateCoffeeQuantity
          }}
       >
          {children}

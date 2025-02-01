@@ -115,6 +115,16 @@ export const OrderContainer = styled.div`
 
    background: ${props => props.theme["base-card"]};
 
+   .coffeesOnOrder {
+      display: grid;
+
+      gap: 1.5rem;
+      overflow: auto;
+      
+      padding-right: 0.75rem;
+      max-height: 20.5rem;
+   }
+
    .divider {
       height: 1px;
       width: 100%;

@@ -4,13 +4,22 @@ import { Stepper } from "../../../../components/stepper";
 
 import { Trash } from "phosphor-react";
 
-import { CoffeeOnCartProps } from "../../../../context/coffee-cart-context";
+import { CoffeeCartContext, CoffeeOnCartProps } from "../../../../context/coffee-cart-context";
+import { useContext } from "react";
 
 interface CoffeeCardOnOrder {
    coffee: CoffeeOnCartProps
 }
 
 export function CoffeeCard({ coffee }: CoffeeCardOnOrder) {
+   const { updateCoffeeQuantity } = useContext(CoffeeCartContext)
+   
+   function handleQuantityChange(newQuantity: number) {
+      updateCoffeeQuantity(coffee.id, newQuantity)
+   }
+
+   const totalCoffeePrice = (coffee.price * coffee.quantity).toFixed(2)
+
    return (
       <CoffeeCardContainer>
          <div className="coffeInfo">
@@ -20,7 +29,11 @@ export function CoffeeCard({ coffee }: CoffeeCardOnOrder) {
                <span>{coffee.name}</span>
 
                <div className="actions">
-                  <Stepper />
+                  <Stepper
+                  itemId={coffee.id}
+                  initialValue={coffee.quantity}
+                  onChange={handleQuantityChange}
+                  />
 
                   <button>
                      <Trash size={16} />
@@ -30,7 +43,7 @@ export function CoffeeCard({ coffee }: CoffeeCardOnOrder) {
             </div>
          </div>
 
-         <strong>{coffee.price}</strong>
+         <strong>{totalCoffeePrice}</strong>
       </CoffeeCardContainer>
    )
 }

@@ -13,6 +13,12 @@ import { CoffeeCartContext } from "../../context/coffee-cart-context";
 export function Checkout() {
    const { coffeesOnCart } = useContext(CoffeeCartContext)
 
+   const deliveryPrice = (3.5).toFixed(2)
+
+   const totalOrderPrice = coffeesOnCart.reduce((total, coffee) => total + coffee.quantity * coffee.price, 0).toFixed(2)
+
+   const totalOrderPriceWithDelivery = (Number(totalOrderPrice) + Number(deliveryPrice)).toFixed(2)
+
    return (
       <CheckoutContainer>
          <form action="">
@@ -63,33 +69,29 @@ export function Checkout() {
             </FormContainer>
             
             <OrderContainer>
+               <div className="coffeesOnOrder">
                {coffeesOnCart.map(coffee => (
                   <>
                      <CoffeeCard coffee={coffee} />
                      <div className="divider" />
                   </>
                ))}
-
-               {/* <CoffeeCard />
-               <div className="divider" />
-
-               <CoffeeCard />
-               <div className="divider" /> */}
+               </div>
 
                <div className="orderPricing">
                   <div>
                      <p>Total de itens</p>
-                     <span>29,70</span>
+                     <span>{totalOrderPrice}</span>
                   </div>
 
                   <div>
                      <p>Entrega</p>
-                     <span>3,50</span>
+                     <span>{deliveryPrice}</span>
                   </div>
 
                   <div>
                      <strong>Total</strong>
-                     <span>33,20</span>
+                     <span>{totalOrderPriceWithDelivery}</span>
                   </div>
                </div>
 

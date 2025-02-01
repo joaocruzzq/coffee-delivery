@@ -4,6 +4,7 @@ import { StepperContainer } from "./styles";
 import { Minus, Plus } from "phosphor-react";
 
 interface StepperProps {
+   itemId: number
    initialValue: number
    onChange: (quantity: number) => void
 }

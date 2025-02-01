@@ -45,6 +45,7 @@ export function CoffeeCard({coffee}: CoffeeProps) {
 
             <div className="actions">
                <Stepper
+               itemId={coffee.id}
                initialValue={itemQuantity}
                onChange={handleQuantityChange}
                />
