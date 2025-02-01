@@ -26,6 +26,7 @@ export interface CoffeeType {
 interface CoffeeCartContextType {
    coffeesOnCart: CoffeeOnCartProps[]
    addCoffeeToCart: (coffee: CoffeeType) => void
+   updateCoffeeCart:(id: number) => void
    updateCoffeeQuantity: (id: number, quantity: number) => void
 }
 
@@ -68,6 +69,15 @@ export function CoffeeCartContextProvider({ children }: CoffeeCartContextProvide
       )
    }
 
+   function updateCoffeeCart(id: number){
+      const coffeesWithoutDeletedOne = coffeesOnCart.filter(
+         (coffee) => coffee.id !== id
+      )
+
+      setCoffeesOnCart(coffeesWithoutDeletedOne)
+   }
+   
+
    useEffect(() => {
       console.log(coffeesOnCart)
    }, [coffeesOnCart])
@@ -77,7 +87,8 @@ export function CoffeeCartContextProvider({ children }: CoffeeCartContextProvide
          value={{
             coffeesOnCart,
             addCoffeeToCart,
-            updateCoffeeQuantity
+            updateCoffeeCart,
+            updateCoffeeQuantity,
          }}
       >
          {children}

@@ -18,7 +18,7 @@ export function Stepper({ initialValue, onChange }: StepperProps) {
    }
          
    function decreaseItemQuantity() {
-      if(itemQuantity > 0) {
+      if(itemQuantity > 1) {
          setItemQuantity(itemQuantity - 1)
          onChange(itemQuantity - 1)
       }
