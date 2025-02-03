@@ -31,12 +31,12 @@ interface DeliveryType {
    neighborhood: string
    city: string
    uf: string
-
-   payment: 'credit' | 'debit' | 'cash'
+   payment: 'Cartão de Crédito' | 'Cartão de Débito' | 'Dinheiro'
 }
 
 interface CoffeeCartContextType {
    coffeesOnCart: CoffeeOnCartProps[]
+   deliveryData: DeliveryType
 
    cleanCartAfterCheckout: () => void
 
@@ -94,7 +94,15 @@ export function CoffeeCartContextProvider({ children }: CoffeeCartContextProvide
       setCoffeesOnCart(coffeesWithoutDeletedOne)
    }
 
-   const [deliveryData, setDeliveryData] = useState<DeliveryType>()
+   const [deliveryData, setDeliveryData] = useState<DeliveryType>({
+      cep: "",
+      city: "",
+      neighborhood: "",
+      number: 0,
+      payment: "Dinheiro",
+      street: "",
+      uf: ""
+   })
 
    function addNewOrderDelivery(order: DeliveryType) {
       const newDeliveryData = {
@@ -116,18 +124,17 @@ export function CoffeeCartContextProvider({ children }: CoffeeCartContextProvide
    }
 
    useEffect(() => {
-      console.log(coffeesOnCart)
-      console.log(deliveryData)
    }, [coffeesOnCart, deliveryData])
 
    return (
       <CoffeeCartContext.Provider
          value={{
+            deliveryData,
             coffeesOnCart,
             addCoffeeToCart,
+            addNewOrderDelivery,
             deleteCoffeeFromCart,
             updateCoffeeQuantity,
-            addNewOrderDelivery,
             cleanCartAfterCheckout
          }}
       >

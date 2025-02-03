@@ -24,7 +24,7 @@ const newDeliveryFormSchema = z.object({
    neighborhood: z.string().min(1),
    city: z.string().min(1),
    uf: z.string().min(2),
-   payment: z.enum(['credit', 'debit', 'cash']),
+   payment: z.enum(['Cartão de Crédito', 'Cartão de Débito', 'Dinheiro']),
    complement: z.string().optional()
 })
 
@@ -102,9 +102,9 @@ export function Checkout() {
                   </header>
 
                   <div className="paymentMethodSection">
-                     <PaymentMethod icon={<CreditCard />} method="cartão de crédito" value="credit" />
-                     <PaymentMethod icon={<Bank />} method="cartão de débito" value="debit" />
-                     <PaymentMethod icon={<Money />} method="dinheiro" value="cash" />
+                     <PaymentMethod icon={<CreditCard />} method="cartão de crédito" value="Cartão de Crédito" />
+                     <PaymentMethod icon={<Bank />} method="cartão de débito" value="Cartão de Débito" />
+                     <PaymentMethod icon={<Money />} method="dinheiro" value="Dinheiro" />
                   </div>
                </FormContainer>
             </FormProvider>
