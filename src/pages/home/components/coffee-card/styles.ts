@@ -104,4 +104,46 @@ export const CoffeeCardContainer = styled.div`
          background: ${props => props.theme.purple};
       }
    }
+
+   @media(max-width: 768px) {
+      width: 12.875rem;
+      height: 17.25rem;
+
+      img {
+         width: 6.5rem;
+         height: 6.5rem;
+      }
+
+      .tags {
+         display: none;
+      }
+
+      h1 {
+         text-align: center;
+         line-height: 115%;
+
+         margin: 0 auto 1.5rem;
+         min-height: calc(1rem * 2);
+      }
+
+      span {
+         text-align: justify;
+         line-height: 130%;
+         
+         margin-bottom: -0.25rem;
+         min-height: calc(1.25rem * 3);
+      }
+
+      .buy-section {
+         margin-top: 0.25rem;
+      }
+
+      .buy-section h1 {
+         font-size: 1.875rem;
+      }
+      
+      .actions div:first-child {
+         display: none;
+      }
+   }
 `

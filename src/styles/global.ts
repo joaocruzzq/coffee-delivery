@@ -36,4 +36,10 @@ export const GlobalStyles = createGlobalStyle`
       font-weight: 400;
       font-family: 'Roboto', sans-serif;
    }
+
+   @media (max-width: 768px) {
+      html {
+         font-size: 84.5%;
+      }
+   }
 `

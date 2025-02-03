@@ -12,6 +12,10 @@ export const HeaderContainer = styled.header`
       outline: none;
       box-shadow: none;
    }
+
+   @media(max-width: 768px) {
+      padding: 2rem 2.5rem;
+   }
 `
 
 export const ActionButtons = styled.div`
@@ -78,5 +82,11 @@ export const ActionButtons = styled.div`
 
       color: ${props => props.theme["yellow-dark"]};
       background-color: ${props => props.theme["yellow-light"]};
+   }
+
+   @media(max-width: 768px) {
+      span p {
+         display: none;
+      }
    }
 `

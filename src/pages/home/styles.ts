@@ -18,6 +18,23 @@ export const IntroContainer = styled.div`
    img {
       grid-area: img;
    }
+
+   @media(max-width: 768px) {
+      display: grid;
+
+      text-align: justify;
+      padding: 2rem 2.5rem;
+
+      gap: 2.25rem;
+
+      grid-template-columns: 1fr;
+      grid-template-areas: 'title' 'img' 'items';
+
+      img {
+         width: 100%;
+         margin-bottom: 1rem;
+      }
+   }
 `
 
 export const IntroTitle = styled.div`
@@ -45,6 +62,12 @@ export const IntroTitle = styled.div`
 
       color: ${props => props.theme["base-subtitle"]};
    }
+
+   @media(max-width: 768px) {
+      h1 {
+         font-size: 2.25rem;
+      }
+   }
 `
 
 export const ItemsContainer = styled.div`
@@ -54,8 +77,10 @@ export const ItemsContainer = styled.div`
    grid-template-columns: auto auto;
 
    div {
-      display: flex;
       gap: 0.5rem;
+      
+      display: grid;
+      grid-template-columns: auto 1fr;
 
       align-items: center;
    }
@@ -84,6 +109,16 @@ export const ItemsContainer = styled.div`
    div:nth-child(4) > svg {
       background: ${props => props.theme.purple}
    }
+
+   @media(max-width: 768px) {
+      row-gap: 1rem;
+      column-gap: 0.5rem;
+
+      div {
+         text-align: left;
+         font-size: 1rem;
+      }
+   }
 `
 
 export const CoffeeList = styled.div`
@@ -110,5 +145,14 @@ export const CoffeeList = styled.div`
 
       grid-row-gap: 2.5rem;
       grid-column-gap: 2rem;
+   }
+
+   @media(max-width: 786px) {
+      padding: 2.5rem;
+
+      div {
+         column-gap: 1rem;
+         grid-template-columns: 1fr 1fr;
+      }
    }
 `

@@ -23,7 +23,7 @@ export function Header() {
          <ActionButtons>
             <span>
                <MapPin size={22} weight="fill" />
-               Porto Alegre, RS
+               <p>Porto Alegre, RS</p>
             </span>
 
             <NavLink to="/checkout">
