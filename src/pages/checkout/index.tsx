@@ -10,10 +10,12 @@ import { PaymentMethod } from "./components/payment-method";
 import { useContext } from "react";
 import { CoffeeCartContext } from "../../context/coffee-cart-context";
 
-import { FormProvider, useForm } from "react-hook-form";
-
 import * as z from "zod"
+
+import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+
+import { useNavigate } from "react-router-dom";
 
 const newDeliveryFormSchema = z.object({
    cep: z.string().min(8, 'Informe um CEP válido.'),
@@ -29,7 +31,7 @@ const newDeliveryFormSchema = z.object({
 type NewDeliveryFormData = z.infer<typeof newDeliveryFormSchema>
 
 export function Checkout() {
-   const { coffeesOnCart, addNewOrderDelivery } = useContext(CoffeeCartContext)
+   const { coffeesOnCart, addNewOrderDelivery, cleanCartAfterCheckout } = useContext(CoffeeCartContext)
 
    const newDeliveryForm = useForm<NewDeliveryFormData>({
       resolver: zodResolver(newDeliveryFormSchema),
@@ -40,7 +42,14 @@ export function Checkout() {
    function handleCreateNewDelivery(data: NewDeliveryFormData) {
       addNewOrderDelivery(data)
       reset()
+
+      cleanCartAfterCheckout()
+      navigate("/success")
    }
+
+   const emptyOrder = coffeesOnCart.length <= 0
+      
+   const navigate = useNavigate()
 
    const deliveryPrice = (3.5).toFixed(2)
 
@@ -127,7 +136,7 @@ export function Checkout() {
                   </div>
                </div>
 
-               <Button type="submit" />
+               <Button type="submit" disabled={emptyOrder} />
             </OrderContainer>
          </form>
       </CheckoutContainer>

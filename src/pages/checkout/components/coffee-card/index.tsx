@@ -12,14 +12,14 @@ interface CoffeeCardOnOrder {
 }
 
 export function CoffeeCard({ coffee }: CoffeeCardOnOrder) {
-   const { updateCoffeeCart, updateCoffeeQuantity } = useContext(CoffeeCartContext)
+   const { deleteCoffeeFromCart, updateCoffeeQuantity } = useContext(CoffeeCartContext)
    
    function handleQuantityChange(newQuantity: number) {
       updateCoffeeQuantity(coffee.id, newQuantity)
    }
 
    function handleRemoveCoffeeFromCart(){
-      updateCoffeeCart(coffee.id)
+      deleteCoffeeFromCart(coffee.id)
    }
 
    const totalCoffeePrice = (coffee.price * coffee.quantity).toFixed(2)

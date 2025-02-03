@@ -38,10 +38,12 @@ interface DeliveryType {
 interface CoffeeCartContextType {
    coffeesOnCart: CoffeeOnCartProps[]
 
+   cleanCartAfterCheckout: () => void
+
    addCoffeeToCart: (coffee: CoffeeType) => void
    addNewOrderDelivery: (order: DeliveryType) => void
 
-   updateCoffeeCart:(id: number) => void
+   deleteCoffeeFromCart:(id: number) => void
    updateCoffeeQuantity: (id: number, quantity: number) => void
 }
 
@@ -84,7 +86,7 @@ export function CoffeeCartContextProvider({ children }: CoffeeCartContextProvide
       )
    }
 
-   function updateCoffeeCart(id: number){
+   function deleteCoffeeFromCart(id: number){
       const coffeesWithoutDeletedOne = coffeesOnCart.filter(
          (coffee) => coffee.id !== id
       )
@@ -109,6 +111,10 @@ export function CoffeeCartContextProvider({ children }: CoffeeCartContextProvide
       setDeliveryData(newDeliveryData)
    }
 
+   function cleanCartAfterCheckout() {
+      setCoffeesOnCart([])
+   }
+
    useEffect(() => {
       console.log(coffeesOnCart)
       console.log(deliveryData)
@@ -119,9 +125,10 @@ export function CoffeeCartContextProvider({ children }: CoffeeCartContextProvide
          value={{
             coffeesOnCart,
             addCoffeeToCart,
-            updateCoffeeCart,
+            deleteCoffeeFromCart,
             updateCoffeeQuantity,
             addNewOrderDelivery,
+            cleanCartAfterCheckout
          }}
       >
          {children}
