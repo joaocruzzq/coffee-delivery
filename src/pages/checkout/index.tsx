@@ -10,8 +10,37 @@ import { PaymentMethod } from "./components/payment-method";
 import { useContext } from "react";
 import { CoffeeCartContext } from "../../context/coffee-cart-context";
 
+import { FormProvider, useForm } from "react-hook-form";
+
+import * as z from "zod"
+import { zodResolver } from "@hookform/resolvers/zod";
+
+const newDeliveryFormSchema = z.object({
+   cep: z.string().min(8, 'Informe um CEP válido.'),
+   street: z.string().min(1),
+   number: z.number().min(1),
+   neighborhood: z.string().min(1),
+   city: z.string().min(1),
+   uf: z.string().min(2),
+   payment: z.enum(['credit', 'debit', 'cash']),
+   complement: z.string().optional()
+})
+
+type NewDeliveryFormData = z.infer<typeof newDeliveryFormSchema>
+
 export function Checkout() {
-   const { coffeesOnCart } = useContext(CoffeeCartContext)
+   const { coffeesOnCart, addNewOrderDelivery } = useContext(CoffeeCartContext)
+
+   const newDeliveryForm = useForm<NewDeliveryFormData>({
+      resolver: zodResolver(newDeliveryFormSchema),
+   })
+
+   const { handleSubmit, register, reset } = newDeliveryForm
+
+   function handleCreateNewDelivery(data: NewDeliveryFormData) {
+      addNewOrderDelivery(data)
+      reset()
+   }
 
    const deliveryPrice = (3.5).toFixed(2)
 
@@ -21,52 +50,55 @@ export function Checkout() {
 
    return (
       <CheckoutContainer>
-         <form action="">
+         <form onSubmit={handleSubmit(handleCreateNewDelivery)} >
+
             <h1>Complete seu pedido</h1>
 
             <h1>Cafés selecionados</h1>
 
-            <FormContainer className="deliveryInfo">
-               <header>
-                  <MapPinLine size={22} className="pinIcon" />
-                  <div className="deliveryHeaderInfo">
-                     <span>Endereço de Entrega</span>
-                     <p>Informe o endereço onde deseja receber seu pedido</p>
+            <FormProvider {...newDeliveryForm}>
+               <FormContainer className="deliveryInfo">
+                  <header>
+                     <MapPinLine size={22} className="pinIcon" />
+                     <div className="deliveryHeaderInfo">
+                        <span>Endereço de Entrega</span>
+                        <p>Informe o endereço onde deseja receber seu pedido</p>
+                     </div>
+                  </header>
+
+                  <div className="deliveryInputs">
+                     <Input type="text" placeholder="CEP" {...register("cep")} />
+                     <Input type="text" placeholder="Rua" {...register("street")} />
+
+                     <div>
+                        <Input type="number" placeholder="Número" {...register("number", {valueAsNumber: true})} />
+                        <Input type="text" placeholder="Complemento" isOptional {...register("complement")} />
+                     </div>
+
+                     <div>
+                        <Input type="text" placeholder="Bairro" {...register("neighborhood")} />
+                        <Input type="text" placeholder="Cidade" {...register("city")} />
+                        <Input type="text" placeholder="UF" {...register("uf")} />
+                     </div>
                   </div>
-               </header>
+               </FormContainer>
 
-               <div className="deliveryInputs">
-                  <Input type="text" placeholder="CEP" />
-                  <Input type="text" placeholder="Rua" />
+               <FormContainer>
+                  <header>
+                     <CurrencyDollar size={22} className="dollarIcon" />
+                     <div className="deliveryHeaderInfo">
+                        <span>Pagamento</span>
+                        <p>O pagamento é feito na entrega. Escolha a forma que deseja pagar</p>
+                     </div>
+                  </header>
 
-                  <div>
-                     <Input type="text" placeholder="Número" />
-                     <Input type="text" placeholder="Complemento" isOptional />
+                  <div className="paymentMethodSection">
+                     <PaymentMethod icon={<CreditCard />} method="cartão de crédito" value="credit" />
+                     <PaymentMethod icon={<Bank />} method="cartão de débito" value="debit" />
+                     <PaymentMethod icon={<Money />} method="dinheiro" value="cash" />
                   </div>
-
-                  <div>
-                     <Input type="text" placeholder="Bairro" />
-                     <Input type="text" placeholder="Cidade" />
-                     <Input type="text" placeholder="UF" />
-                  </div>
-               </div>
-            </FormContainer>
-
-            <FormContainer>
-               <header>
-                  <CurrencyDollar size={22} className="dollarIcon" />
-                  <div className="deliveryHeaderInfo">
-                     <span>Pagamento</span>
-                     <p>O pagamento é feito na entrega. Escolha a forma que deseja pagar</p>
-                  </div>
-               </header>
-
-               <div className="paymentMethodSection">
-                  <PaymentMethod icon={<CreditCard />} method="cartão de crédito" />
-                  <PaymentMethod icon={<Bank />} method="cartão de débito" />
-                  <PaymentMethod icon={<Money />} method="dinheiro" />
-               </div>
-            </FormContainer>
+               </FormContainer>
+            </FormProvider>
             
             <OrderContainer>
                <div className="coffeesOnOrder">
@@ -95,7 +127,7 @@ export function Checkout() {
                   </div>
                </div>
 
-               <Button />
+               <Button type="submit" />
             </OrderContainer>
          </form>
       </CheckoutContainer>

@@ -1,17 +1,17 @@
 import { InputContainer, InputContent, IsOptionalMessage } from "./style";
 
-import { InputHTMLAttributes } from "react";
+import { forwardRef, InputHTMLAttributes } from "react";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
    isOptional?: boolean
 }
 
-export function Input(props: InputProps) {
+export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
    return (
       <InputContainer>
-         <InputContent {...props}/>
+         <InputContent ref={ref} {...props}/>
 
          {props.isOptional && <IsOptionalMessage>Opicional</IsOptionalMessage>}
       </InputContainer>
    )
-}
+})
