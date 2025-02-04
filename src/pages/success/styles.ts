@@ -112,4 +112,25 @@ export const SuccessContainer = styled.div`
       
       color: ${props => props.theme.background}
    }
+
+   @media(max-width: 768px) {
+      padding: 5rem 2.5rem;
+
+      grid-template-columns: 1fr;
+      grid-template-areas: "h1" "span" "img" "card";
+
+      img {
+         width: 100%;
+         margin-bottom: 2.5rem;
+      }
+
+      .deliveryInfoCard {
+         row-gap: 2.5rem;
+         padding: 4rem 2.5rem;
+      }
+
+      .deliveryInfoCard div {
+         column-gap: 1.25rem;
+      }
+   }
 `

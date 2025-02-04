@@ -15,6 +15,10 @@ export const HeaderContainer = styled.header`
 
    @media(max-width: 768px) {
       padding: 2rem 2.5rem;
+
+      img {
+         height: 100%;
+      }
    }
 `
 
