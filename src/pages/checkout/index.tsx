@@ -79,12 +79,12 @@ export function Checkout() {
                      <Input type="text" placeholder="CEP" {...register("cep")} />
                      <Input type="text" placeholder="Rua" {...register("street")} />
 
-                     <div>
+                     <div className="firstChild">
                         <Input type="number" placeholder="Número" {...register("number", {valueAsNumber: true})} />
                         <Input type="text" placeholder="Complemento" isOptional {...register("complement")} />
                      </div>
 
-                     <div>
+                     <div className="lastChild">
                         <Input type="text" placeholder="Bairro" {...register("neighborhood")} />
                         <Input type="text" placeholder="Cidade" {...register("city")} />
                         <Input type="text" placeholder="UF" {...register("uf")} />

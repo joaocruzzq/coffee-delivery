@@ -21,12 +21,31 @@ export const CheckoutContainer = styled.div`
          color: ${props => props.theme["base-subtitle"]};
       }
 
+      h1:first-child {
+         grid-area: title1;
+      }
+
+      h1:nth-child(2) {
+         grid-area: title2;
+      }
+
       .pinIcon {
          color: ${props => props.theme["yellow-dark"]};
       }
 
       .dollarIcon {
          color: ${props => props.theme.purple};
+      }
+   }
+
+   @media(max-width: 768px) {
+      padding: 2rem 2.5rem;
+      
+
+      form {
+         display: grid;
+         grid-template-columns: 1fr;
+         grid-template-areas: 'title1' 'form1' 'form2' 'title2' 'order';
       }
    }
 `
@@ -98,6 +117,24 @@ export const FormContainer = styled.div`
       display: flex;
       gap: 0.75rem;
    }
+
+   @media(max-width: 768px) {
+      header {
+         gap: 1rem;
+      }
+
+      .deliveryInputs div {
+         display: flex;
+
+         label:first-child, div > label:first-child {
+            width: 40%;
+         }
+      }
+
+      .paymentMethodSection {
+         display: grid;
+      }
+   }
 `
 
 export const OrderContainer = styled.div`
@@ -154,6 +191,14 @@ export const OrderContainer = styled.div`
          font-weight: bold;
          font-size: 1.25rem;
          color: ${props => props.theme["base-subtitle"]};
+      }
+   }
+
+   @media(max-width: 768px) {
+      margin-bottom: 2rem;
+
+      .coffeesOnOrder {
+         max-height: 23rem;
       }
    }
 `
